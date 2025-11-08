@@ -27,7 +27,7 @@ app.post('/api/shorturl', function (req, res) {
     const hostname = new URL(originalURL).hostname;
 
     dns.lookup(hostname, (err) => {
-      if (err) return res.json({ error: "invalid url" });
+      if (err) return res.json({ error: "Invalid URL" });
 
       let existingId = Object.keys(urlDatabase).find(key => urlDatabase[key] === originalURL);
       if (existingId) {
